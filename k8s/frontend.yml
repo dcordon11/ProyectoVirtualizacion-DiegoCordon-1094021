@@ -3,42 +3,39 @@ kind: Deployment
 metadata:
   name: frontend-deployment
   namespace: gamelog
-
 spec:
-  replicas: 2
-
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
-
   template:
     metadata:
       labels:
         app: frontend
-
     spec:
       containers:
         - name: frontend
-
-          image: proyectovirtualizacion-diegocordon-1094021-frontend:latest
-          imagePullPolicy: IfNotPresent
-
+          image: us-central1-docker.pkg.dev/elite-beacon-497022-e8/repo-virtualizacion/frontend:1.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
-
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
   namespace: gamelog
-
 spec:
-  type: ClusterIP
-
+  type: LoadBalancer
   selector:
     app: frontend
-
   ports:
     - port: 80
       targetPort: 80

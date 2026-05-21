@@ -20,8 +20,8 @@ spec:
       containers:
         - name: backend
 
-          image: proyectovirtualizacion-diegocordon-1094021-backend:latest
-          imagePullPolicy: IfNotPresent
+          image: us-central1-docker.pkg.dev/elite-beacon-497022-e8/repo-virtualizacion/backend:1.0
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 5000
@@ -50,7 +50,7 @@ metadata:
   namespace: gamelog
 
 spec:
-  type: ClusterIP
+  type: LoadBalancer
 
   selector:
     app: backend

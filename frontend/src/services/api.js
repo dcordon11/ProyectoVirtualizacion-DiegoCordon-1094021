@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000'
+const API_URL = 'http://34.27.143.250:5000'
 
 export const getToken = () => {
   return localStorage.getItem('token')

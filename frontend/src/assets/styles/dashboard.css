@@ -1,0 +1,141 @@
+.navbar {
+  height: 70px;
+  padding: 0 32px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-user span {
+  color: #cbd5e1;
+}
+
+.nav-user button {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  font-weight: bold;
+}
+
+.dashboard {
+  width: 92%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 32px 0;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  color: #94a3b8;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.form-card {
+  background: #1e293b;
+  padding: 22px;
+  border-radius: 18px;
+  display: grid;
+  gap: 16px;
+  position: sticky;
+  top: 24px;
+}
+
+.form-card h2,
+.games-section h2 {
+  margin-top: 0;
+}
+
+.form-card button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: white;
+  font-weight: bold;
+}
+
+.games-section {
+  background: #111827;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid #1e293b;
+}
+
+.empty {
+  color: #94a3b8;
+  padding: 24px;
+  text-align: center;
+  border: 1px dashed #334155;
+  border-radius: 14px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.star {
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 26px;
+  padding: 0;
+}
+
+.star.active {
+  color: #eab308;
+}
+
+.clear-rating {
+  margin-left: 8px;
+  border: none;
+  background: #334155;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    position: static;
+  }
+
+  .navbar {
+    padding: 0 18px;
+  }
+}

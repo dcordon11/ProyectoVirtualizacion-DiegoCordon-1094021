@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: gamelog
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+
+          image: proyectovirtualizacion-diegocordon-1094021-backend:latest
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 5000
+
+          env:
+            - name: MONGO_USER
+              value: admin
+
+            - name: MONGO_PASSWORD
+              value: admin123
+
+            - name: MONGO_HOST
+              value: mongo-service
+
+            - name: MONGO_PORT
+              value: "27017"
+
+            - name: MONGO_DATABASE
+              value: backlog_juegos
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: gamelog
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: backend
+
+  ports:
+    - port: 5000
+      targetPort: 5000
